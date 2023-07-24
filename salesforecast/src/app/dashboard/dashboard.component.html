@@ -1,0 +1,111 @@
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body
+{
+    
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 90vh;
+    
+    /* background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)); */
+    background-size: cover;
+    background-position: center;
+}
+.navbar{
+/* {
+    position: sticky;
+    top: 0;
+    z-index: 999; */
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: whitesmoke;
+    width: 100%;
+    margin: auto;
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.logo{
+    font-size: 28px;
+    font-weight: 800;
+}
+.logo span
+{   
+    font-size: 34px;
+    width: 120px;
+    color: #ff7050;
+    cursor: pointer;
+    margin-left: 50px;
+    font-weight: 800;
+}
+.navbar ul{
+    margin-right: 30px;
+}
+.navbar ul li
+{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 15px;
+
+}
+.navbar ul li::after
+{
+    background:#ff7050;
+    content: '';
+    height: 3px;
+    width:0;
+    position: absolute;
+    left: 0;
+    bottom:-10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after
+{
+    width: 100%;
+}
+
+iframe{
+    margin-top: 50px;
+    width: 100%;
+    height: 92vh;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1 class="logo">
+            <span>WE</span>PREDICT
+        </h1>
+        <ul class="menu">
+            <li class="menulist"><a routerLink="/home">home</a></li>
+            <li class="menulist"><a routerLink="/home">about</a></li>
+            <li class="menulist"><a routerLink="/home">services</a></li>
+            <li class="menulist"><a routerLink="/home">contact</a></li>
+        </ul>
+    </div>
+    <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNDc1MWVmMzgtZWFkZC00YWQ4LTk2NGEtMjBhN2IxZWUxOGIwIiwidCI6IjMzOTgzNTg3LTYwZWQtNDVkOS04N2M5LTE1OTMyNmJjZTY2ZiJ9" frameborder="0"></iframe>
+</body>

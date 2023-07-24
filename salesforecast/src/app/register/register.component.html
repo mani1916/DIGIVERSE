@@ -1,0 +1,442 @@
+<head>
+	<style>
+		
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+	box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+body {
+	background: #f6f5f7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	margin: -20px 0 50px;
+}
+
+h1 {
+	font-weight: bold;
+	margin: 0;
+}
+input{
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px 0px rgb(167, 167, 167);
+    
+}
+input:focus{
+    outline: none;
+}
+
+h2 {
+	text-align: center;
+}
+
+p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
+
+span {
+	font-size: 12px;
+}
+
+a {
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+button {
+	border-radius: 10px;
+	border: 1px solid #FF7050;
+	background-color: #FF7050;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+input {
+	background-color: #eee;
+	/* border: none;	 */
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+.navbar
+{
+    background: whitesmoke;
+    width: 100%;
+    margin: auto;
+    height: 50px;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.logo{
+    position: absolute;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.logo span
+{   
+    font-size: 34px;
+    width: 120px;
+    color: #ff7050;
+    cursor: pointer;
+    margin-left: 50px;
+    font-weight: 800;
+}
+.navbar ul{
+    position: absolute;
+    left: 65%;
+    margin-right: 30px;
+}
+.navbar ul li
+{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 15px;
+
+}
+.navbar ul li::after
+{
+    background:#ff7050;
+    content: '';
+    height: 3px;
+    width:0;
+    position: absolute;
+    left: 0;
+    bottom:-10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after
+{
+    width: 100%;
+}
+
+.container {
+	background-color: #fff;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+	max-width: 100%;
+	min-height: 600px;
+}
+
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+    /* border: 2px solid black;  */
+}
+
+.sign-in-container {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+.container.right-panel-active .sign-in-container {
+	transform: translateX(100%);
+}
+
+.sign-up-container {
+	left: 0;
+	width: 50%;
+	opacity: 0;
+	z-index: 1;
+}
+
+.container.right-panel-active .sign-up-container {
+	transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+	animation: show 0.6s;
+}
+
+@keyframes show {
+	0%, 49.99% {
+		opacity: 0;
+		z-index: 1;
+	}
+	
+	50%, 100% {
+		opacity: 1;
+		z-index: 5;
+	}
+}
+
+.overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+
+.container.right-panel-active .overlay-container{
+	transform: translateX(-100%);
+}
+
+.overlay {
+	background:rgb(201, 120, 111);
+	background: -webkit-linear-gradient(to right, #FF7050, rgb(201, 120, 111));
+	background: linear-gradient(to right, #ff7050, rgb(201, 120, 111));
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+	color: #FFFFFF;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+  	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+  	transform: translateX(50%);
+}
+
+.overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+	transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+	transform: translateX(0);
+}
+
+.overlay-right {
+	right: 0;
+	transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+	transform: translateX(20%);
+}
+
+.social-container {
+	margin: 20px 0;
+}
+
+.social-container a {
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: #dc3e1a;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+}
+.whole{
+    top: 12%;
+    position: absolute;
+    left: 9%;
+    /* border: 2px solid black;     */
+}
+
+img{
+    position: absolute;
+    width:  22%;
+    top: 28%;
+    left: 68%;
+    /* border: 2px solid black; */
+}
+	</style>
+</head>
+<div class="navbar">
+    <h1 class="logo">
+        <span>WE</span>PREDICT
+    </h1>
+    <ul class="menu">
+        <li class="menulist"><a href="">home</a></li>
+        <li class="menulist"><a href="">about</a></li>
+        <!-- <li class="menulist"><a href="">contact</a></li> -->
+        <li class="menulist"><a href="">services</a></li>
+        <li class="menulist"><a href="">contact</a></li>
+    </ul>
+</div>
+<div class="whole">
+<div class="container" id="container" [ngClass]="containerClass">
+	<div class="form-container sign-up-container">
+		<form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+			<h1>REGISTER</h1>
+			<br>
+			<input type="text" formControlName="username" [ngClass]="{'is-invalid':submitted && registerform.controls['username'].errors}"  class="form-control" placeholder="Name"/>
+            <div *ngIf="submitted && registerform.controls['username'].errors" class="text-danger">
+			<div *ngIf="submitted&& registerform.controls['username'].errors['required']">
+			Name is required</div>
+			<div *ngIf="submitted&& registerform.controls['username'].errors['minlength']">
+			Name should be atleast 4 Characters</div>
+			</div>
+			<br>
+			<input type="email" formControlName="email" [ngClass]="{'is-invalid':submitted && registerform.controls['email'].errors}"  class="form-control" placeholder="Email" />
+            <div *ngIf="submitted && registerform.controls['email'].errors" class="text-danger">
+				<div *ngIf="submitted&& registerform.controls['email'].errors['required']">
+				Email is required</div>
+				<div *ngIf="submitted&& registerform.controls['email'].errors['email']">
+				Enter a Valid email</div>
+				</div>
+				<br> 
+			<input type="password" formControlName="password" [ngClass]="{'is-invalid':submitted && registerform.controls['password'].errors}"  class="form-control" placeholder="Password" />
+			<div *ngIf="submitted && registerform.controls['password'].errors" class="text-danger">
+				<div *ngIf="submitted&& registerform.controls['password'].errors['required']">
+				Password is required</div>
+				<div *ngIf="submitted&& registerform.controls['password'].errors['minlength']">
+				Password should be atleast 6 Characters</div>
+				</div>
+				<div class="text-danger" *ngIf="this.errormessage">
+				<p [innerText]="this.errormessage"></p>
+				</div>
+				<br>
+			<button>Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form [formGroup]="loginform" (ngSubmit)="onLogin()" >
+			<h1>LOGIN</h1>
+			<br>
+			<input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid':login && loginform.controls['email'].errors}" placeholder="Email" />
+            <div *ngIf="login && loginform.controls['email'].errors" class="text-danger">
+				<div *ngIf="login&& loginform.controls['email'].errors['required']">
+					Email is required</div>
+					<div *ngIf="login&& loginform.controls['email'].errors['email']">
+					Enter a Valid email</div>
+			</div>
+			<br>
+			<input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid':login && loginform.controls['password'].errors}" placeholder="Password"  />
+            <div *ngIf="login && loginform.controls['password'].errors" class="text-danger">
+				<div *ngIf="login&& loginform.controls['password'].errors['required']">
+				Password is required
+			</div>
+				<div *ngIf="login&& loginform.controls['password'].errors['minlength']">
+				Password should be atleast 6 Characters
+			</div>
+				
+			</div>
+			<div class="text-danger" *ngIf="this.errormessage">
+				<p [innerText]="this.errormessage"></p>
+				</div>
+				<br>
+			<button>Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>In order to stay in touch with us, please provide your personal information and log in</p>
+				<button class="ghost" id="signIn" (click)="onSignInClick()">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Begin your journey with us by providing your personal information</p>
+				<button class="ghost" id="signUp" (click)="onSignUpClick()">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+</div>
+
+<div class="image">
+    <img *ngIf="imm"  src="../../assets/img/login.jpg" alt="" >
+    <img *ngIf="!imm" src="../../assets/img/register.jpg" alt="" width="50%">
+</div>

@@ -1,0 +1,10 @@
+<form>
+    <div class="form-group">
+      <label for="fileInput">Select Excel file:</label>
+      <input type="file" class="form-control-file" id="fileInput" (change)="onFileSelected($event)">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+  </form>
+  
+  <div id="dashboardContainer"></div>
+  <script src="https://microsoft.github.io/PowerBI-JavaScript/demo/node_modules/powerbi-client/dist/powerbi.min.js"></script>

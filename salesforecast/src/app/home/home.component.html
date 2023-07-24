@@ -1,0 +1,351 @@
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body
+{
+    
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 90vh;
+    
+    /* background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)); */
+    background-size: cover;
+    background-position: center;
+}
+.navbar{
+/* {
+    position: sticky;
+    top: 0;
+    z-index: 999; */
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: whitesmoke;
+    width: 100%;
+    margin: auto;
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.logo{
+    font-size: 28px;
+    font-weight: 800;
+}
+.logo span
+{   
+    font-size: 34px;
+    width: 120px;
+    color: #ff7050;
+    cursor: pointer;
+    margin-left: 50px;
+    font-weight: 800;
+}
+.navbar ul{
+    margin-right: 30px;
+}
+.navbar ul li
+{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 15px;
+
+}
+.navbar ul li::after
+{
+    background:#ff7050;
+    content: '';
+    height: 3px;
+    width:0;
+    position: absolute;
+    left: 0;
+    bottom:-10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after
+{
+    width: 100%;
+}
+.content
+{
+    width: 50%;
+    position: absolute;
+    top: 22%;
+    left: -10px;
+    text-align: center;
+
+    /* color: black; */
+    /* text-transform: uppercase; */
+}
+.content h1{
+    /* position: absolute; */
+    font-size: 38px;
+    margin-top: 170px;
+    color: #ff7050;
+    margin-left: -200px;
+    font-weight: 800;
+}
+.content h2{
+    top: 170px;
+    left: 350px;
+    position: absolute; 
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+.com{
+    color: #ff7050;
+}
+.content p
+{
+    
+    margin-left: 90px;
+    font-weight: 100px;
+    line-height: 25px;
+    color: rgb(48, 48, 48);
+}
+.content button
+{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: rgb(66, 64, 64);
+    cursor: pointer;
+    position: relative;  
+    z-index:2;
+    overflow: hidden; 
+    border: none;
+    border: 2px solid #ff7050;
+}
+.content span
+{
+    background: transparent;
+    height: 100%;
+    width:0;
+    border-radius: 25px;
+    border: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.5s;
+    z-index:-1;
+    background: #ff7050;
+}
+button:hover span
+{
+    width: 100%;
+    /* background: white; */
+    border: none;
+}
+button:hover
+{
+    /* background: white; */
+    border: none;
+ 
+}
+img{
+    position: absolute;
+    left: 50%;
+    top: 22%;
+}
+
+h3{
+    /* margin-top: 70px; */
+    margin-left: 30px;
+    color: #ff7050;
+}
+
+#about{
+    padding: 50px;
+    margin-top: 40px;
+}
+#about p{
+    position: absolute;
+    left: 500px;
+}
+#about img{
+    position: absolute;
+    left: 60px;
+    top: 112%;
+}
+
+.se{
+    margin-top: 20%;
+}
+#services{
+    margin-top: 40px;
+    padding: 50px;
+    
+}
+#services p{
+    margin-top: 20px;
+    position: absolute;
+    left: 80px;
+    right: 500px;
+}
+#services img{
+    position: absolute;
+    
+    left: 73%;
+    top: 167%;
+}
+
+
+.co{
+
+    margin-top: 25%;
+    margin-bottom: 10%;
+}
+
+#contact{
+    padding: 50px;
+    margin-top: 40px;
+}
+#contact p{
+    position: absolute;
+    left: 500px;
+}
+#contact img{
+    position: absolute;
+    left: 60px;
+    top: 240%;
+}
+.about{
+    position: absolute;
+    top: 110%;
+    background-color: #ff7050;
+    margin-top: 0;
+    width: 70%;
+    left: 16%;
+    border: 2px solid black;
+    
+    /* height: 50%; */
+
+}
+p{
+    background-color: #f7e0dd;
+    border-radius: 40px;
+    padding: 40px;
+    margin-right: 20px;
+}
+
+    </style>
+</head>
+<body>
+        <div class="navbar">
+            <h1 class="logo">
+                <span>WE</span>PREDICT
+            </h1>
+            <ul class="menu">
+                <li class="menulist"><a routerLink="/#home"  (click)="scrollTo('home')" >home</a></li>
+                <li class="menulist"><a routerLink="/#about   " (click)="scrollTo('about')">about</a></li>
+                <li class="menulist"><a routerLink="/#services" (click)="scrollTo('services')">services</a></li>
+                <li class="menulist"><a routerLink="/#contact " (click)="scrollTo('contact')">contact</a></li>
+            </ul>
+        </div>
+        <section id="home">
+            
+        <div class="content">
+
+            <h1>S@LES</h1>
+            <h2>
+                FORECAST
+            </h2>
+            
+            
+            Eliminate  guesswork  and  make  informed  decisions  with  precise  sales  forecasting
+            
+            <div>
+                <button class="enter" (click)="go()"><span></span>EXPLORE</button>
+                <!-- <button class="enter"><span></span>REGISTER</button> -->
+            </div>
+        </div>
+    
+        <div class="img">
+            <img src="../../assets/img/11667200_20943477.jpg" width="45%" alt="">
+        </div>
+
+        </section>
+    
+
+    </body>
+<div class="ab">
+    <section id="about">
+        <h3><i class="fa-sharp fa-solid fa-people-group" style="color: #ff7050;"> </i>  ABOUT</h3>
+        <img src="../../assets/img/about.jpg" alt="" width="24%">
+        <p>
+            Welcome to WEPREDICT, a cutting-edge data analytics company that specializes in forecasting. <br>
+            <br> 
+            Our mission is to empower businesses and organizations with the ability to make informed decisions by providing them with accurate and timely predictions about future trends and events.
+            <br><br>
+            We achieve this by leveraging the latest advancements in machine learning and data science to analyze vast amounts of structured and unstructured data from multiple sources.
+            <br><br>
+            Thank you for considering WEPREDICT for your predictive modeling and forecasting needs. We look forward to the opportunity to work with you and help you unlock the full potential of your data.
+
+        </p>
+    </section>
+</div>
+
+   <div class="se">
+       <section id="services">
+        <h3><i class="fa-solid fa-gears" style="color: #ff7050;"></i>  SERVICES</h3>
+        <img src="../../assets/img/service.jpg" alt="" width="24%">
+        <p>
+            At WEPREDICT, we offer a range of predictive modeling and forecasting services designed to help businesses and organizations make informed decisions based on accurate and timely predictions about future trends and events.
+            <br><br>
+            Our service include:
+            <br><br>
+            Forecasting: Our forecasting services enable businesses to anticipate future trends and events and make proactive decisions to stay ahead of the competition.
+            <br><br>
+            At WEPREDICT, we pride ourselves on providing customized solutions tailored to the specific needs of our clients. We work closely with businesses and organizations to understand their unique challenges and objectives and develop predictive models and forecasting solutions that enable them to achieve their goals.
+        </p>
+    </section>
+   </div>
+
+
+   <div class="co">
+       <section id="contact">
+        <h3><i class="fa-solid fa-address-book" style="color: #ff7050;"></i>  CONTACT</h3>
+        <img src="../../assets/img/contact.jpg" alt="" width="24%">
+        <p>
+            Thank you for your interest in WEPREDICT. We would love to hear from you and answer any questions you may have about our services.
+            <br>
+            You can contact us by phone, email.
+            <br>
+            <br>
+            
+            <span><i class="fa-solid fa-phone" style="color: #647696;"></i> Phone: +91-6379106625</span>
+            <br>
+            
+            <span><i class="fa-solid fa-envelope" style="color: #566b8f;"></i> Gmail: wepredict@gmail.com</span>
+            <br>
+            <br>
+            
+Thank you for considering WEPREDICT for your predictive modeling and forecasting needs. We look forward to the opportunity to work with you and help you unlock the full potential of your data.
+        </p>
+    </section>
+   </div>

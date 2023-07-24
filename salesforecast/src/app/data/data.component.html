@@ -1,0 +1,225 @@
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body{
+    width: 100%;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to top,rgba(255, 255, 255, 0.5)50%,rgba(255, 255, 255, 0.5)50%),url(../../assets/img/2825363_20421.jpg);
+    background-position: center;
+    background-size: cover;
+
+}
+.up{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* background:whitesmoke; */
+    background: linear-gradient(to top,rgba(255, 255, 255, 0.5)50%,rgba(255, 255, 255, 0.5)50%);
+    border-bottom: 1px solid #FF7050;
+}
+.up button{
+    margin-left: 900px;
+}
+
+.logo{
+    font-size: 28px;
+    font-weight: 800;
+}
+.logo span
+{   
+    font-size: 34px;
+    width: 120px;
+    color: #ff7050;
+    cursor: pointer;
+    margin-left: 50px;
+    font-weight: 800;
+}.logo{
+    font-size: 28px;
+    font-weight: 800;
+}
+.logo span
+{   
+    font-size: 34px;
+    width: 120px;
+    color: #ff7050;
+    cursor: pointer;
+    margin-left: 50px;
+    font-weight: 800;
+}
+ 
+
+button{
+    background: #FF7050;
+    color: white    ;
+    border: none;
+}
+
+button:hover{
+    color: #FF7050;
+    border:2px solid  #FF7050;
+    background: white;
+}
+img
+{
+    margin-left: 48%;
+    margin-top: 15%;
+}
+#kk{
+    margin-left: 48%;
+    margin-top: 2%;
+    color: #FF7050;
+}
+.ss{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 60%;
+}
+
+.ss select{
+    width: 58%;
+    margin-left: 25px;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+input,select{
+    
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 57%;
+}
+.modal-title{
+    color: #FF7050;
+}
+
+#old h2{
+    float: left;
+    color: orange;
+    /* background: linear-gradient(to top,rgba(255, 255, 255, 0.5)50%,rgba(255, 255, 255, 0.5)50%); */
+    background: white;
+    
+}
+#new,#old{
+    /* width: 200px; */
+}
+#new h2{
+    float: right;
+    color: rgb(70, 148, 221);
+    border: none;
+    background: linear-gradient(to top,rgba(255, 255, 255, 0.5)50%,rgba(255, 255, 255, 0.5)50%);
+    background: white;
+    
+}
+#graph .col-md-5{
+    margin-top: 30px;
+    width: 600px;
+    height: 300px;
+}
+
+.m{
+    box-shadow: 5px 5px 20px 0px rgb(167, 167, 167);
+    background: white;
+
+}
+
+p{
+    margin-top: 7%;
+    margin-left: 100px;
+}
+
+a{
+    text-decoration: none;
+    color: #FF7050;
+}
+#mk{
+    margin-top: 4%;
+}
+    </style>
+</head>
+<body>
+    <div class="up">
+    <h1 class="logo">
+        <span>WE</span>PREDICT
+    </h1>
+    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+        Upload Data
+      </button>
+</div>
+   
+    <!-- modal -->
+    <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Upload Data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form">
+                <form [formGroup]="predict">
+                    <input type="file" required="required" (change)="onFileSelected($event)" class="form-control" formControlName="file1" [ngClass]="{'is-invalid':pred&& predict.controls['file1'].errors}">
+                    
+                 <div class="ss">
+                    <span class="peri">Periodicity</span>
+                    <select [(ngModel)]="periodicity" name="periodicity" formControlName="sele" class="form-control" [ngClass]="{'is-invalid':pred&& predict.controls['sele'].errors}">
+                        <option value="D">day</option>
+                        <option value="M">month</option>
+                        <option value="Y">year</option>
+                    </select >
+                 </div>
+                <input type="number" required="required" placeholder=" enter no.of periods" class="form-control" [(ngModel)]="period" name="period" formControlName="time" [ngClass]="{'is-invalid':pred&& predict.controls['time'].errors}">
+                  
+                    <button #myButton class="sub" class="btn" type="submit" (click)="closeModal()">PREDICT</button>
+                  
+            </form>
+            </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+            <img *ngIf="this.spinner" src="../../assets/img/spinner.gif" alt="" width="5%">
+            <p *ngIf="this.spinner" id="kk"><i>loading....</i></p>
+        <div class="container" >
+            <div *ngIf="col" class="row" id="mk">
+                <div class="col-md-5" id="old">
+                    <h2>OLD SALES</h2>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5" id="new">
+                    <h2>NEW SALES</h2>
+                </div>
+            </div>
+            <div  class="row" id="graph">
+                <div [ngClass]="{'m':col}" class="col-md-5">
+                    <canvas #chartCanvas></canvas>
+                </div>
+                <div class="col-md-1"></div>
+                <div [ngClass]="{'m':col}" class="col-md-5" >
+                    <canvas #chartCanvas1></canvas>
+                </div>
+            </div>
+        </div>
+<p *ngIf="col"><i>Here your's new Updated Bussiness Dashboard with future predictions.....</i><span><a routerLink="/dashboard"><b>click here</b></a></span></p>
+</body>
+
+<!-- <form (ngSubmit)="onSubmit()">
+    <input type="file" (change)="onFileSelected($event)">
+    <input type="text" [(ngModel)]="periodicity" name="periodicity">
+    <input type="text" [(ngModel)]="period" name="period">
+    <button type="submit">Submit</button>
+  </form> -->
